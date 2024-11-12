@@ -1,0 +1,13 @@
+sonarqubeApplicationName : sonarqube-app
+
+namespace: tooling
+
+sonarqubeimage: 
+  name: 416591745024.dkr.ecr.eu-west-2.amazonaws.com/global-service/sonarqube-app
+  tag: "latest"
+
+sonarqubeservice: sonarqube-app-service
+serviceingress:  sonarqube-ingress-service
+
+sonarqubeappbaseURL : sonarqube.globalfrontierlink.co.uk
+

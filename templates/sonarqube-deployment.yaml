@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.sonarqubeApplicationName }}
+  namespace: {{ .Values.namespace }} 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.sonarqubeApplicationName  }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.sonarqubeApplicationName  }}
+    spec:
+      containers:
+        - name: {{ .Values.sonarqubeApplicationName }}
+          image: "{{ .Values.sonarqubeimage.name }}:{{ .Values.sonarqubeimage.tag }}"
+          resources: 
+            requests: 
+              memory: "1536M"
+              cpu: "400m" 
+            limits: 
+              memory: "3072M" 
+              cpu: "800m"
+          ports:
+            - containerPort: 9000
+      

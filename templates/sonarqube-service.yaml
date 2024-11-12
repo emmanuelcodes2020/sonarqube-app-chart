@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.sonarqubeservice }}
+  namespace: {{ .Values.namespace }} 
+spec:
+  selector:
+    app: {{ .Values.sonarqubeApplicationName  }}
+  ports:
+    - port: 80
+      targetPort: 9000
+      protocol: TCP
+  type: ClusterIP
